@@ -40,7 +40,34 @@ namespace LemonadeStand.Classes
 
             type = GetRainAmount(number);
 
+            if(type == "heavy")
+            {
+                type = GetThunderHailChance(type);
+            }
+
             return type;
+        }
+
+        public string GetThunderHailChance(string heavy)
+        {
+            string chance = "";
+            Random random = new Random();
+            int number = random.Next(0, 100);
+
+            if(number > 95)
+            {
+                chance = "hail";
+            }
+            else if (number > 75 && number <= 95)
+            {
+                chance = "storm";
+            }
+            else
+            {
+                chance = heavy;
+            }
+
+            return chance;
         }
 
         public string GetRainAmount(int number)
