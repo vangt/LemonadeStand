@@ -14,6 +14,9 @@ namespace LemonadeStand.Classes
 
         public Weather()
         {
+            this.temperature = GetTemperature();
+            this.cloud = GetCloud();
+            this.rain = GetRain();
         }
 
         public string GetRain()
@@ -136,8 +139,8 @@ namespace LemonadeStand.Classes
         public string GetTemperature()
         {
             string temperature = "";
-
-            // TODO:
+            Random random = new Random();
+            temperature = random.Next(51, 111).ToString();
 
             return temperature;
         }
