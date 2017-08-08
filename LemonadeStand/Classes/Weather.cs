@@ -28,10 +28,21 @@ namespace LemonadeStand.Classes
         public string GetCloud()
         {
             string cloud = "";
+            Random random = new Random();
+            int number = random.Next(0, 4);
 
-            // TODO:
+            GetTypeOfCloud(number);
 
             return cloud;
+        }
+
+        public string GetTypeOfCloud(int number)
+        {
+            string type = "";
+
+
+
+            return type;
         }
 
         public string GetTemperature()
