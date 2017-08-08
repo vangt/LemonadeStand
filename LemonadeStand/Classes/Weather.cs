@@ -18,7 +18,7 @@ namespace LemonadeStand.Classes
 
         public string GetRain()
         {
-            string rain = "";
+            string rain = "none";
             
             if(this.cloud == "none")
             {
@@ -26,7 +26,7 @@ namespace LemonadeStand.Classes
             }
             else
             {
-
+                rain = RainType();
             }
 
             return rain;
@@ -35,8 +35,35 @@ namespace LemonadeStand.Classes
         public string RainType()
         {
             string type = "";
+            Random random = new Random();
+            int number = random.Next(0, 6);
+
+            type = GetRainAmount(number);
 
             return type;
+        }
+
+        public string GetRainAmount(int number)
+        {
+            string heaviness = "";
+
+            switch(number)
+            {
+                case 0:
+                case 3:
+                case 5:
+                    heaviness = "scattered";
+                    return heaviness;
+                case 1:
+                case 4:
+                    heaviness = "light";
+                    return heaviness;
+                case 2:
+                    heaviness = "heavy";
+                    return heaviness;
+                default:
+                    return heaviness;
+            }
         }
 
         public string GetCloud()
