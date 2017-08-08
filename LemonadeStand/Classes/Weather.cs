@@ -29,9 +29,9 @@ namespace LemonadeStand.Classes
         {
             string cloud = "";
             Random random = new Random();
-            int number = random.Next(0, 4);
+            int number = random.Next(0, 10);
 
-            GetTypeOfCloud(number);
+            cloud = GetTypeOfCloud(number);
 
             return cloud;
         }
@@ -40,9 +40,29 @@ namespace LemonadeStand.Classes
         {
             string type = "";
 
-
-
-            return type;
+            switch(number)
+            {
+                case 2:
+                case 4:
+                case 6:
+                case 8:
+                    type = "none";
+                    return type;
+                case 0:
+                case 5:
+                    type = "partly";
+                    return type;
+                case 1:
+                case 7:
+                    type = "mostly";
+                    return type;
+                case 3:
+                case 9:
+                    type = "cloudy";
+                    return type;
+                default:
+                    return type;
+            }
         }
 
         public string GetTemperature()
