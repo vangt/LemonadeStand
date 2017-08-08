@@ -15,5 +15,32 @@ namespace LemonadeStand.Classes
         public Weather()
         {
         }
+
+        public string GetRain()
+        {
+            string rain = "";
+
+            // TODO:
+
+            return rain;
+        }
+
+        public string GetCloud()
+        {
+            string cloud = "";
+
+            // TODO:
+
+            return cloud;
+        }
+
+        public string GetTemperature()
+        {
+            string temperature = "";
+
+            // TODO:
+
+            return temperature;
+        }
     }
 }
