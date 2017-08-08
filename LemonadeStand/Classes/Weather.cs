@@ -19,10 +19,24 @@ namespace LemonadeStand.Classes
         public string GetRain()
         {
             string rain = "";
+            
+            if(this.cloud == "none")
+            {
+                rain = "Rain chance is low to none.";
+            }
+            else
+            {
 
-            // TODO:
+            }
 
             return rain;
+        }
+
+        public string RainType()
+        {
+            string type = "";
+
+            return type;
         }
 
         public string GetCloud()
