@@ -51,6 +51,7 @@
     <Compile Include="Classes\Lemon.cs" />
     <Compile Include="Classes\LemonadeStand.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Store.cs" />
     <Compile Include="Classes\Sugar.cs" />
     <Compile Include="Classes\Weather.cs" />
     <Compile Include="Program.cs" />
