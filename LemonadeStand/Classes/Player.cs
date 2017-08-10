@@ -20,5 +20,20 @@ namespace LemonadeStand.Classes
         {
 
         }
+
+        public void BuyLemon()
+        {
+
+        }
+
+        public void BuySugar()
+        {
+
+        }
+
+        public void BuyIce()
+        {
+
+        }
     }
 }
