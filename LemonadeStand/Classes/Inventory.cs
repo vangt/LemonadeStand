@@ -8,29 +8,38 @@ namespace LemonadeStand.Classes
 {
     public class Inventory
     {
-        private double lemon;
-        private double sugar;
-        private double ice;
-        private double cup;
+        List<Lemon> lemons = new List<Lemon>();
+        List<Sugar> sugars = new List<Sugar>();
+        List<Ice> ices = new List<Ice>();
+        List<Cup> cups = new List<Cup>();
 
         public Inventory()
         {
 
         }
 
-        public void AddLemon(int number)
+        public void AddLemon()
         {
-            lemon += number;
+            Lemon lemon = new Lemon();
+            lemons.Add(lemon);
         }
 
-        public void AddSugar(int number)
+        public void AddSugar()
         {
-            sugar += number;
+            Sugar sugar = new Sugar();
+            sugars.Add(sugar);
         }
 
-        public void AddIce(int number)
+        public void AddIce()
         {
-            ice += number;
+            Ice ice = new Ice();
+            ices.Add(ice);
+        }
+
+        public void AddCups()
+        {
+            Cup cup = new Cup();
+            cups.Add(cup);
         }
 
         public void RemoveLemon(int number)
