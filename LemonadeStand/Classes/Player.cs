@@ -10,7 +10,6 @@ namespace LemonadeStand.Classes
     {
         private double wallet;
         private string name;
-        private double price;
         private double profit;
         private double loss;
         Inventory intventory = new Inventory();
@@ -23,7 +22,7 @@ namespace LemonadeStand.Classes
         public void GetPlayer()
         {
             name = GetName;
-            wallet += 10;
+            AddRemoveMoney += 10;
         }
 
         public string GetName
@@ -72,14 +71,16 @@ namespace LemonadeStand.Classes
 
         }
 
-        public void AddMoney(double sales)
+        public double AddRemoveMoney
         {
-            wallet += sales;
-        }
-
-        public void RemoveMoney(double price)
-        {
-            wallet -= price;
+            get
+            {
+                return wallet;
+            }
+            set
+            {
+                wallet = value;
+            }
         }
 
         public void RemoveCup()
