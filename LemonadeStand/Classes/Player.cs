@@ -22,7 +22,7 @@ namespace LemonadeStand.Classes
         public void GetPlayer()
         {
             name = GetName;
-            wallet = GetWallet += 10;
+            wallet += 10;
         }
 
         public string GetName
@@ -43,10 +43,6 @@ namespace LemonadeStand.Classes
             get
             {
                 return wallet;
-            }
-            set
-            {
-                wallet = value;
             }
         }
 
@@ -82,7 +78,7 @@ namespace LemonadeStand.Classes
 
         public void RemoveMoney(double price)
         {
-            wallet = GetWallet - price;
+            wallet -= price;
         }
 
         public void RemoveCup()
