@@ -6,32 +6,37 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand.Classes
 {
-    public abstract class Items
+    public class Lemon : Items
     {
-        protected string name;
-        protected double price;
+        public Lemon(string name)
+        {
+            this.name = Name;
+            this.price = Price;
+        }
 
-        public virtual string Name
+        public override string Name
         {
             get
             {
                 return name;
             }
+
             set
             {
-                name = value;
+                name = "Lemon";
             }
         }
 
-        public virtual double Price
+        public override double Price
         {
             get
             {
                 return price;
             }
+
             set
             {
-                price = value;
+                price = .5;
             }
         }
     }
