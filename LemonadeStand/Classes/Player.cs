@@ -12,7 +12,7 @@ namespace LemonadeStand.Classes
         private string name;
         private double profit;
         private double loss;
-        Inventory intventory = new Inventory();
+        Inventory inventory = new Inventory();
         
         public Player()
         {
@@ -46,24 +46,22 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void BuyCup()
+        public string Buy(double amount, double price)
         {
+            double total = price * amount;
+            string walletamount = "";
 
-        }
+            if (wallet < total)
+            {
+                walletamount = "Not enough money";
+            }
+            else
+            {
+                walletamount = "You have enough money";
+                AddRemoveMoney -= total;
+            }
 
-        public void BuyLemon()
-        {
-
-        }
-
-        public void BuySugar()
-        {
-
-        }
-
-        public void BuyIce()
-        {
-
+            return walletamount;
         }
 
         public void GetRecipe()
