@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand.Classes
 {
-    public abstract class Items
+    public abstract class Item
     {
-        protected string name;
-        protected double price;
+        private string name;
+        private double price;
 
-        public virtual string Name
+        public string Name
         {
             get
             {
@@ -23,7 +23,7 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public virtual double Price
+        public double Price
         {
             get
             {
