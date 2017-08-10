@@ -16,26 +16,6 @@ namespace LemonadeStand.Classes
 
         }
 
-        public void BuyCup()
-        {
-
-        }
-
-        public void BuyLemon()
-        {
-
-        }
-
-        public void BuySugar()
-        {
-
-        }
-
-        public void BuyIce()
-        {
-
-        }
-
         public void GetWallet()
         {
 
