@@ -11,6 +11,8 @@ namespace LemonadeStand.Classes
         private double wallet;
         private string name;
         private double price;
+        private double profit;
+        private double loss;
         
         public Player()
         {
@@ -83,6 +85,16 @@ namespace LemonadeStand.Classes
         }
 
         public void GetPrice()
+        {
+
+        }
+
+        public void GetProfit()
+        {
+
+        }
+
+        public void GetLoss()
         {
 
         }
