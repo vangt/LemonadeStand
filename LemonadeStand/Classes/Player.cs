@@ -55,10 +55,5 @@ namespace LemonadeStand.Classes
         {
 
         }
-
-        public void RemoveMoney()
-        {
-
-        }
     }
 }
