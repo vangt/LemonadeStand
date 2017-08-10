@@ -19,6 +19,37 @@ namespace LemonadeStand.Classes
 
         }
 
+        public void GetPlayer()
+        {
+            name = GetName;
+            wallet = GetWallet += 10;
+        }
+
+        public string GetName
+        {
+            get
+            {
+                return name;
+            }  
+            set
+            {
+                Console.WriteLine("What is your name?");
+                name = Console.ReadLine();
+            }
+        }
+
+        public double GetWallet
+        {
+            get
+            {
+                return wallet;
+            }
+            set
+            {
+                wallet = value;
+            }
+        }
+
         public void BuyCup()
         {
 
@@ -39,29 +70,19 @@ namespace LemonadeStand.Classes
 
         }
 
-        public void GetWallet()
-        {
-
-        }
-
-        public void GetName()
-        {
-
-        }
-
         public void GetRecipe()
         {
 
         }
 
-        public void GetMoney()
+        public void AddMoney(double sales)
         {
-
+            wallet += sales;
         }
 
-        public void RemoveMoney()
+        public void RemoveMoney(double price)
         {
-
+            wallet = GetWallet - price;
         }
 
         public void RemoveCup()
