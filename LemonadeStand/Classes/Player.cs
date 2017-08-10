@@ -12,6 +12,7 @@ namespace LemonadeStand.Classes
         private string name;
         private double profit;
         private double loss;
+        private double netProfitLoss;
         Inventory inventory = new Inventory();
         
         public Player()
@@ -83,22 +84,22 @@ namespace LemonadeStand.Classes
 
         public void RemoveCup()
         {
-
+            inventory.RemoveCup();
         }
 
         public void RemoveLemon()
         {
-
+            inventory.RemoveLemon();
         }
 
         public void RemoveSugar()
         {
-
+            inventory.RemoveSugar();
         }
 
         public void RemoveIce()
         {
-
+            inventory.RemoveIce();
         }
 
         public void GetProfit()
@@ -107,6 +108,11 @@ namespace LemonadeStand.Classes
         }
 
         public void GetLoss()
+        {
+
+        }
+
+        public void GetNetProfitLoss()
         {
 
         }
