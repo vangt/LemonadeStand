@@ -103,11 +103,6 @@ namespace LemonadeStand.Classes
 
         }
 
-        public void GetPrice()
-        {
-
-        }
-
         public void GetProfit()
         {
 
