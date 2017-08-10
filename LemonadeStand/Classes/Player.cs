@@ -82,26 +82,6 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void RemoveCup()
-        {
-            inventory.RemoveCup();
-        }
-
-        public void RemoveLemon()
-        {
-            inventory.RemoveLemon();
-        }
-
-        public void RemoveSugar()
-        {
-            inventory.RemoveSugar();
-        }
-
-        public void RemoveIce()
-        {
-            inventory.RemoveIce();
-        }
-
         public void GetProfit()
         {
 
