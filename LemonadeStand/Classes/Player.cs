@@ -13,6 +13,7 @@ namespace LemonadeStand.Classes
         private double price;
         private double profit;
         private double loss;
+        Inventory intventory = new Inventory();
         
         public Player()
         {

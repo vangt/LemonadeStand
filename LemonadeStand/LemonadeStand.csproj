@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Classes\Customer.cs" />
     <Compile Include="Classes\Inventory.cs" />
+    <Compile Include="Classes\Items.cs" />
     <Compile Include="Classes\LemonadeStand.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Classes\Weather.cs" />
