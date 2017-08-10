@@ -45,5 +45,20 @@ namespace LemonadeStand.Classes
         {
 
         }
+
+        public void GetRecipe()
+        {
+
+        }
+
+        public void GetMoney()
+        {
+
+        }
+
+        public void RemoveMoney()
+        {
+
+        }
     }
 }
