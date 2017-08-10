@@ -8,8 +8,8 @@ namespace LemonadeStand.Classes
 {
     public class Player
     {
-        public double wallet;
-        public string name;
+        private double wallet;
+        private string name;
         
         public Player()
         {
@@ -32,6 +32,16 @@ namespace LemonadeStand.Classes
         }
 
         public void BuyIce()
+        {
+
+        }
+
+        public void GetWallet()
+        {
+
+        }
+
+        public void GetName()
         {
 
         }
