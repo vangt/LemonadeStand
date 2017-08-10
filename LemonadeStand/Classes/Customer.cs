@@ -11,6 +11,7 @@ namespace LemonadeStand.Classes
     public class Customer
     {
         private double thirst;
+        private bool isBuying;
         
         public Customer()
         {
@@ -31,6 +32,49 @@ namespace LemonadeStand.Classes
                 Thread.Sleep(1000);
                 stopWatch.Stop();
                 thirst = random.Next(40, 61);
+            }
+        }
+
+        public bool IsBuying
+        {
+            get
+            {
+                return isBuying;
+            }
+            set
+            {
+                if(thirst > 75)
+                {
+                    isBuying = true;
+                }
+                else
+                {
+                    isBuying = false;
+                }
+            }
+        }
+
+        public double AddThirst
+        {
+            get
+            {
+                return thirst;
+            }
+            set
+            {
+                thirst += value;
+            }
+        }
+
+        public double RemoveThirst
+        {
+            get
+            {
+                return thirst;
+            }
+            set
+            {
+                thirst -= value;
             }
         }
     }

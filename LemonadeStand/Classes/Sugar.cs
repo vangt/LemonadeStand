@@ -11,7 +11,7 @@ namespace LemonadeStand.Classes
         public Sugar()
         {
             this.Name = "Sugar";
-            this.Price = .25;
+            this.Price = .75;
         }
     }
 }

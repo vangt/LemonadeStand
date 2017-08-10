@@ -42,34 +42,24 @@ namespace LemonadeStand.Classes
             cups.Add(cup);
         }
 
-        public void RemoveLemon(int number)
+        public void RemoveLemon()
         {
-            lemon -= number;
-
-            if(lemon < 0)
-            {
-                lemon = 0;
-            }
+            lemons.RemoveAt(0);
         }
 
-        public void RemoveSugar(int number)
+        public void RemoveSugar()
         {
-            sugar -= number;
-
-            if(sugar < 0)
-            {
-                sugar = 0;
-            }
+            sugars.RemoveAt(0);
         }
 
-        public void RemoveIce(int number)
+        public void RemoveIce()
         {
-            ice -= number;
+            ices.RemoveAt(0);
+        }
 
-            if(ice < 0)
-            {
-                ice = 0;
-            }
+        public void RemoveCup()
+        {
+            cups.RemoveAt(0);
         }
     }
 }
