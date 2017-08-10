@@ -16,6 +16,26 @@ namespace LemonadeStand.Classes
 
         }
 
+        public void BuyCup()
+        {
+
+        }
+
+        public void BuyLemon()
+        {
+
+        }
+
+        public void BuySugar()
+        {
+
+        }
+
+        public void BuyIce()
+        {
+
+        }
+
         public void GetWallet()
         {
 
@@ -32,6 +52,31 @@ namespace LemonadeStand.Classes
         }
 
         public void GetMoney()
+        {
+
+        }
+
+        public void RemoveMoney()
+        {
+
+        }
+
+        public void RemoveCup()
+        {
+
+        }
+
+        public void RemoveLemon()
+        {
+
+        }
+
+        public void RemoveSugar()
+        {
+
+        }
+
+        public void RemoveIce()
         {
 
         }
