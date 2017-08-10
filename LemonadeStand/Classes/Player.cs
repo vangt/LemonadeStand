@@ -60,5 +60,25 @@ namespace LemonadeStand.Classes
         {
 
         }
+
+        public void RemoveCup()
+        {
+
+        }
+
+        public void RemoveLemon()
+        {
+
+        }
+
+        public void RemoveSugar()
+        {
+
+        }
+
+        public void RemoveIce()
+        {
+
+        }
     }
 }
