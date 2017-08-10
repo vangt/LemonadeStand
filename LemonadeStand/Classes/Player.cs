@@ -10,6 +10,7 @@ namespace LemonadeStand.Classes
     {
         private double wallet;
         private string name;
+        private double price;
         
         public Player()
         {
@@ -77,6 +78,11 @@ namespace LemonadeStand.Classes
         }
 
         public void RemoveIce()
+        {
+
+        }
+
+        public void GetPrice()
         {
 
         }
