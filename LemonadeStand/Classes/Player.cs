@@ -8,7 +8,7 @@ namespace LemonadeStand.Classes
 {
     public class Player
     {
-        public double cash;
+        public double wallet;
         public string name;
         
         public Player()
