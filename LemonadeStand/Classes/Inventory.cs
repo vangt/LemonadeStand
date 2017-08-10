@@ -11,6 +11,7 @@ namespace LemonadeStand.Classes
         private double lemon;
         private double sugar;
         private double ice;
+        private double cup;
 
         public Inventory()
         {

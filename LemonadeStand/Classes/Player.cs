@@ -15,5 +15,10 @@ namespace LemonadeStand.Classes
         {
 
         }
+
+        public void BuyCup()
+        {
+
+        }
     }
 }
