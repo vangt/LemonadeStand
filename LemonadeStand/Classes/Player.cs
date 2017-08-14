@@ -23,7 +23,7 @@ namespace LemonadeStand.Classes
         public void GetPlayer()
         {
             name = GetName;
-            AddRemoveMoney += 10;
+            AddRemoveMoney += 25;
         }
 
         public string GetName
@@ -95,9 +95,9 @@ namespace LemonadeStand.Classes
         public void LemonsToRemove(double amount)
         {
             double number = 0;
-            number = AskLemonAmount();
+            number = AskLemonAmount(amount);
 
-            if (number > inventory.GetLemonList.Count)
+            if (number * amount > inventory.GetLemonList.Count)
             {
                 Console.WriteLine("You don't have that many lemons.");
                 LemonsToRemove(amount);
@@ -114,9 +114,9 @@ namespace LemonadeStand.Classes
         public void SugarToRemove(double amount)
         {
             double number = 0;
-            number = AskSugarAmount();
+            number = AskSugarAmount(amount);
 
-            if (number > inventory.GetSugarList.Count)
+            if (number * amount > inventory.GetSugarList.Count)
             {
                 Console.WriteLine("You don't have that much sugar.");
                 SugarToRemove(amount);
@@ -133,9 +133,9 @@ namespace LemonadeStand.Classes
         public void IceToRemove(double amount)
         {
             double number = 0;
-            number = AskIceAmount();
+            number = AskIceAmount(amount);
 
-            if (number > inventory.GetIceList.Count)
+            if (number * amount > inventory.GetIceList.Count)
             {
                 Console.WriteLine("You don't have that much ice.");
                 IceToRemove(amount);
@@ -230,21 +230,24 @@ namespace LemonadeStand.Classes
             if (net > 0)
             {
                 Console.WriteLine("You have a net income of: " + net);
+                Console.ReadLine();
             }
             else if (net < 0)
             {
                 Console.WriteLine("You have a net loss of: " + net);
+                Console.ReadLine();
             }
             else
             {
                 Console.WriteLine("You broke even at the end of 7 days.");
+                Console.ReadLine();
             }
         }
 
-        public double AskLemonAmount()
+        public double AskLemonAmount(double amount)
         {
             double lemon = 0;
-            Console.WriteLine("How many lemons do you wish to put in your recipe?");
+            Console.WriteLine("How many lemons do you wish to put in your recipe? This number is multiplied by " + amount + " for the number of batches");
 
             try
             {
@@ -258,10 +261,10 @@ namespace LemonadeStand.Classes
             return lemon;
         }
 
-        public double AskSugarAmount()
+        public double AskSugarAmount(double amount)
         {
             double sugar = 0;
-            Console.WriteLine("How many sugar do you wish to put in your recipe?");
+            Console.WriteLine("How many sugar do you wish to put in your recipe? This number is multiplied by " + amount + " for the number of batches");
 
             try
             {
@@ -275,10 +278,10 @@ namespace LemonadeStand.Classes
             return sugar;
         }
 
-        public double AskIceAmount()
+        public double AskIceAmount(double amount)
         {
             double ice = 0;
-            Console.WriteLine("How many ice do you wish to put in your recipe?");
+            Console.WriteLine("How many ice do you wish to put in your recipe? This number is multiplied by " + amount + " for the number of batches");
 
             try
             {

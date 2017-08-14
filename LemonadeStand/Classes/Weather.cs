@@ -25,8 +25,7 @@ namespace LemonadeStand.Classes
             }
             set
             {
-                Random random = new Random();
-                double number = random.Next(50, 100);
+                temperature = value;
             }
         }
 
@@ -38,11 +37,11 @@ namespace LemonadeStand.Classes
             }
             set
             {
-                temperature = GetNewTemperature(temperature);
+                temperature = value;
             }
         }
 
-        public double GetNewTemperature(double temperature)
+        public double GetNewTemperature()
         {
             Random random = new Random();
             int plusminus = random.Next(0, 1);
@@ -50,11 +49,11 @@ namespace LemonadeStand.Classes
 
             if(plusminus == 0)
             {
-                temperature += number;
+                GetTemperature += number;
             }
             else
             {
-                temperature -= number;
+                GetTemperature -= number;
             }
 
             return temperature;
@@ -68,10 +67,7 @@ namespace LemonadeStand.Classes
             }
             set
             {
-                Random random = new Random();
-                int number = random.Next(0, weather.Length - 1);
-
-                weatherOfDay = weather[number];
+                weatherOfDay = value;
             }
         }
 
@@ -83,18 +79,45 @@ namespace LemonadeStand.Classes
             }
             set
             {
-                Random random = new Random();
-                int number = random.Next(0,2);
-
-                if(number == 0)
-                {
-                    weatherOfDay = weatherOfDay;
-                }
-                else
-                {
-                    weatherOfDay = IncreaseDecrease(weatherOfDay);
-                }
+                weatherOfDay = value;
             }
+        }
+
+
+        public string GetTodaysActualWeather()
+        {
+            string weatherOfToday = "";
+
+            Random random = new Random();
+            int number = random.Next(0, 2);
+
+            if (number == 0)
+            {
+                weatherOfToday = GetWeatherForecast;
+            }
+            else
+            {
+                weatherOfToday = IncreaseDecrease(weatherOfDay);
+            }
+
+            return weatherOfToday;
+        }
+        public double GetRandomTemperature()
+        {
+            Random random = new Random();
+            double temperature = random.Next(50, 100);
+
+            return temperature;
+        }
+
+        public string GetRandomWeather()
+        {
+            string todaysWeather = "";
+            Random random = new Random();
+            int number = random.Next(0, weather.Length);
+
+            todaysWeather = weather[number];
+            return todaysWeather;
         }
 
         public string IncreaseDecrease(string weatherOfDay)

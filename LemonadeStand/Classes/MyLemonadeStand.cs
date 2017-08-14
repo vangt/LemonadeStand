@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace LemonadeStand.Classes
 {
-    public class LemonadeStand
+    public class MyLemonadeStand
     {
         Player player = new Player();
         Weather weather = new Weather();
         Store store = new Store();
+        List<Customer> customers = new List<Customer>();
 
         public void Start()
         {
@@ -23,32 +24,39 @@ namespace LemonadeStand.Classes
             while (days < 7)
             {
                 Console.WriteLine("Day " + days);
-                string todayWeather = weather.GetWeatherForecast;
-                double todayTemperature = weather.GetTemperature;
-                GetForcast(todayWeather, todayTemperature);
+                weather.GetWeatherForecast = weather.GetRandomWeather();
+                weather.GetTemperature = weather.GetRandomTemperature();
+                GetForcast(weather.GetWeatherForecast, weather.GetTemperature);
                 double cupsUsed = 0;
                 double currentWallet = player.GetWallet;
+                double sales = 0;
 
                 GetStore();
 
                 cupsUsed += GetRecipe();
-                GetPrice();
+                double price = GetPrice();
                 double cost = currentWallet - player.GetWallet;
 
-                string actualWeather = weather.GetActualWeather;
-                double actualTemperature = weather.GetActualTemperature;
+                weather.GetActualWeather = weather.GetTodaysActualWeather();
+                weather.GetActualTemperature = weather.GetNewTemperature() ;
 
-                GetActualWeather(actualWeather, actualTemperature);
+                GetActualWeather(weather.GetActualWeather, weather.GetActualTemperature);
 
-                GenerateCustomers(actualWeather, actualTemperature);
+                GenerateCustomers(weather.GetActualWeather, weather.GetActualTemperature, price);
+
+                sales = GetNumberOfSales(customers, price);
+
+                player.GetProfitLoss(cost, sales);
 
                 days++;
             }
+
+            player.GetNetProfitLoss();
         }
 
         public void WelcomeMessage()
         {
-            Console.WriteLine("You have decided to earn some extra change by selling lemonade. \n You have only 7 days to earn extra cash before you have to go back to your real job. \n You start out with 10$ to buy lemons, sugar, ice, and cups. \n You can mix your own recipe and add a price, 1 recipe makes 10 cups. \n You will get the forcast of that day's weather and it could change. \n Remember that the weather affect a customer's thirst level.");
+            Console.WriteLine("You have decided to earn some extra change by selling lemonade. \n You have only 7 days to earn extra cash before you have to go back to your real job. \n You start out with 25 dollars to buy lemons, sugar, ice, and cups. \n You can mix your own recipe and add a price, 1 recipe makes 10 cups. \n You will get the forcast of that day's weather and it could change. \n Remember that the weather affect a customer's thirst level.");
             Console.ReadLine();
         }
 
@@ -250,6 +258,7 @@ namespace LemonadeStand.Classes
                     player.GetInventory.RemoveCup();
                 }
 
+                cupsUsed += (10 * amount);
             }
             else
             {
@@ -273,14 +282,31 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void GenerateCustomers(string weather, double temperature)
+        public void GenerateCustomers(string weather, double temperature, double price)
         {
-            Customer customer = new Customer(weather, temperature);
-            
             for(double i = 0; i <= 100; i++)
             {
-
+                Customer customer = new Customer(weather, temperature, price);
+                customers.Add(customer);
             }
+        }
+
+        public double GetNumberOfSales(List<Customer> customers, double price)
+        {
+            double numberOfCustomers = 0;
+            double sales = 0;
+
+            foreach(Customer customer in customers)
+            {
+                if(customer.AddRemoveThirst > 75)
+                {
+                    player.AddRemoveMoney += price;
+                    numberOfCustomers++;
+                    sales += price;
+                }
+            }
+
+            return sales;
         }
     }
 }

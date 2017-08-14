@@ -13,25 +13,12 @@ namespace LemonadeStand.Classes
         private double thirst;
         private bool isBuying;
         
-        public Customer(string weather, double temperature)
+        public Customer(string weather, double temperature, double price)
         {
-            thirst = GetThirst;
+            GetTimer();
             WeatherThirst(weather);
             TemperatureThirst(temperature);
-        }
-
-        public double GetThirst
-        {
-            get
-            {
-                return thirst;
-            }
-            set
-            {
-                Random random = new Random();
-                GetTimer();
-                thirst = random.Next(40, 61);
-            }
+            PriceThirst(price);
         }
 
         public void GetTimer()
@@ -41,25 +28,9 @@ namespace LemonadeStand.Classes
             stopWatch.Start();
             Thread.Sleep(1000);
             stopWatch.Stop();
-        }
-
-        public bool IsBuying
-        {
-            get
-            {
-                return isBuying;
-            }
-            set
-            {
-                if(thirst > 75)
-                {
-                    isBuying = true;
-                }
-                else
-                {
-                    isBuying = false;
-                }
-            }
+            Random random = new Random();
+            GetTimer();
+            GetThirst = random.Next(40, 61);
         }
 
         public double AddRemoveThirst
@@ -79,13 +50,13 @@ namespace LemonadeStand.Classes
             switch(weatherOfDay)
             {
                 case "sunny":
-                    AddRemoveThirst += 15;
+                    AddRemoveThirst += 20;
                     break;
                 case "partyly cloudy":
-                    AddRemoveThirst += 10;
+                    AddRemoveThirst += 15;
                     break;
                 case "cloudy":
-                    AddRemoveThirst += 5;
+                    AddRemoveThirst += 10;
                     break;
                 case "scattered showers":
                     AddRemoveThirst -= 5;
@@ -100,21 +71,45 @@ namespace LemonadeStand.Classes
 
         public void TemperatureThirst(double temperature)
         {
-            if (temperature > 90)
+            if (temperature > 85)
             {
                 AddRemoveThirst += 15;
             }
-            else if (temperature > 75 && temperature <= 90)
+            else if (temperature > 65 && temperature <= 85)
             {
                 AddRemoveThirst += 10;
             }
-            else if (temperature > 65 && temperature <= 75)
+            else if (temperature > 50 && temperature <= 65)
             {
                 AddRemoveThirst += 5;
             }
             else
             {
                 AddRemoveThirst -= 5;
+            }
+        }
+
+        public void PriceThirst(double price)
+        {
+            if (price > 85)
+            {
+                AddRemoveThirst -= 10;
+            }
+            else if (price > 65 && price <= 85)
+            {
+                AddRemoveThirst -= 5;
+            }
+            else if (price > 50 && price <= 65)
+            {
+                AddRemoveThirst += 5;
+            }
+            else if (price > 25 && price <= 50)
+            {
+                AddRemoveThirst += 10;
+            }
+            else
+            {
+                AddRemoveThirst += 15;
             }
         }
     }
