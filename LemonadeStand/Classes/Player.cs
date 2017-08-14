@@ -113,5 +113,22 @@ namespace LemonadeStand.Classes
 
             return lemon;
         }
+
+        public double AskSugarAmount()
+        {
+            double sugar = 0;
+            Console.WriteLine("How many sugar do you wish to put in your recipe?");
+
+            try
+            {
+                sugar = double.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("That was not a valid number.");
+            }
+
+            return sugar;
+        }
     }
 }
