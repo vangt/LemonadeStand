@@ -10,10 +10,24 @@ namespace LemonadeStand.Classes
     {
         private string[] weather = { "sunny", "partly cloudy", "cloudy", "scattered showers", "heavy rain" };
         private string weatherOfDay = "";
+        private double temperature = 0;
 
         public Weather()
         {
 
+        }
+
+        public double GetTemperature
+        {
+            get
+            {
+                return temperature;
+            }
+            set
+            {
+                Random random = new Random();
+                double number = random.Next(50, 100);
+            }
         }
 
         public string GetWeatherForecast
