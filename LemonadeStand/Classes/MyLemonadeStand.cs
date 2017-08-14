@@ -49,6 +49,7 @@ namespace LemonadeStand.Classes
                 player.GetProfitLoss(cost, sales);
 
                 days++;
+                customers.Clear();
             }
 
             player.GetNetProfitLoss();
@@ -172,7 +173,7 @@ namespace LemonadeStand.Classes
             {
                 Console.WriteLine("Not enough money.");
                 Console.ReadLine();
-                BuyCup(double wallet);
+                BuyCup(wallet);
             }
             else
             {

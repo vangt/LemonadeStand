@@ -126,7 +126,7 @@ namespace LemonadeStand.Classes
             Random randon = new Random();
             int number = randon.Next(0, 1);
 
-            for(int i = 0; i <= weather.Length; i++)
+            for(int i = 0; i < weather.Length; i++)
             {
                 if (weatherOfDay == weather[i] && weatherOfDay != weather[weather.Length - 1] && weatherOfDay != weather[0])
                 {
@@ -145,7 +145,7 @@ namespace LemonadeStand.Classes
                 }
                 else if (weatherOfDay == weather[weather.Length - 1])
                 {
-                    newWeather = weather[i - 1];
+                    newWeather = weather[weather.Length - 2];
                 }
             }
 
