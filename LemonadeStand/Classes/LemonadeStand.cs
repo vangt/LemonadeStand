@@ -63,6 +63,7 @@ namespace LemonadeStand.Classes
             }
             else
             {
+                Console.WriteLine("You've bought " + item + " lemons.");
                 for(double i = 0; i <= item; i++)
                 {
                     player.GetInventory.AddLemon();
@@ -87,6 +88,7 @@ namespace LemonadeStand.Classes
             }
             else
             {
+                Console.WriteLine("You've bought " + item + " lbs of sugar.");
                 for (double i = 0; i <= item; i++)
                 {
                     player.GetInventory.AddSugar();
@@ -111,6 +113,7 @@ namespace LemonadeStand.Classes
             }
             else
             {
+                Console.WriteLine("You've bought " + item + " bags of ice.");
                 for (double i = 0; i <= item; i++)
                 {
                     player.GetInventory.AddIce();
@@ -120,7 +123,7 @@ namespace LemonadeStand.Classes
 
         public void BuyCup()
         {
-            Console.WriteLine("How much cup would you like to buy?");
+            Console.WriteLine("How many cups would you like to buy?");
             double buyCup = player.BuyAmount();
             GetCup(buyCup, store.GetCupPrice);
         }
@@ -135,6 +138,7 @@ namespace LemonadeStand.Classes
             }
             else
             {
+                Console.WriteLine("You've bought " + item + " cups.");
                 for (double i = 0; i <= item; i++)
                 {
                     player.GetInventory.AddCups();
