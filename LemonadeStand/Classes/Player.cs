@@ -65,9 +65,9 @@ namespace LemonadeStand.Classes
             return walletamount;
         }
 
-        public void GetRecipe()
+        public void GetRecipe(double lemon, double sugar, double ice)
         {
-
+            
         }
 
         public double AddRemoveMoney
@@ -95,6 +95,23 @@ namespace LemonadeStand.Classes
         public void GetNetProfitLoss()
         {
 
+        }
+
+        public double AskLemonAmount()
+        {
+            double lemon = 0;
+            Console.WriteLine("How many lemons do you wish to put in your recipe?");
+
+            try
+            {
+                lemon = double.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("That was not a valid number.");
+            }
+
+            return lemon;
         }
     }
 }
