@@ -120,7 +120,7 @@ namespace LemonadeStand.Classes
                 {
                     newWeather = weather[i + 1];
                 }
-                else
+                else if (weatherOfDay == weather[weather.Length - 1])
                 {
                     newWeather = weather[i - 1];
                 }

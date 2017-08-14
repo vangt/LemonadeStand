@@ -26,17 +26,21 @@ namespace LemonadeStand.Classes
                 string todayWeather = weather.GetWeatherForecast;
                 double todayTemperature = weather.GetTemperature;
                 GetForcast(todayWeather, todayTemperature);
-
+                double cupsUsed = 0;
                 double currentWallet = player.GetWallet;
 
                 GetStore();
+
+                cupsUsed += GetRecipe();
                 GetPrice();
                 double cost = currentWallet - player.GetWallet;
 
                 string actualWeather = weather.GetActualWeather;
                 double actualTemperature = weather.GetActualTemperature;
 
+                GetActualWeather(actualWeather, actualTemperature);
 
+                GenerateCustomers(actualWeather, actualTemperature);
 
                 days++;
             }
@@ -44,7 +48,7 @@ namespace LemonadeStand.Classes
 
         public void WelcomeMessage()
         {
-            Console.WriteLine("You have decided to earn some extra change by selling lemonade. \n You have only 7 days to earn extra cash before you have to go back to your real job. \n You start out with 10$ to buy lemons, sugar, ice, and cups. \n You can mix your own recipe and add a price. \n You will get the forcast of that day's weather and it could change. \n Remember that the weather affect a customer's thirst level.");
+            Console.WriteLine("You have decided to earn some extra change by selling lemonade. \n You have only 7 days to earn extra cash before you have to go back to your real job. \n You start out with 10$ to buy lemons, sugar, ice, and cups. \n You can mix your own recipe and add a price, 1 recipe makes 10 cups. \n You will get the forcast of that day's weather and it could change. \n Remember that the weather affect a customer's thirst level.");
             Console.ReadLine();
         }
 
@@ -57,6 +61,7 @@ namespace LemonadeStand.Classes
         public void GetActualWeather(string actualWeather, double actualTemperature)
         {
             Console.WriteLine("The actual weather today is " + actualWeather + " and a high of " + actualTemperature);
+            Console.ReadLine();
         }
 
         public void BuyLemons()
@@ -220,6 +225,62 @@ namespace LemonadeStand.Classes
             BuyCup();
         }
 
+        public double GetRecipe()
+        {
+            double cupsUsed = 0;
+            double amount = 0;
 
+            Console.WriteLine("How many recipe batches do you wish to make?");
+            try
+            {
+                amount = double.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Please enter a valid number.");
+                GetRecipe();
+            }
+
+            if (player.GetInventory.GetCupList.Count > 10 * amount)
+            {
+                player.GetRecipe(amount);
+
+                for(int i = 0; i <= 10; i++)
+                {
+                    player.GetInventory.RemoveCup();
+                }
+
+            }
+            else
+            {
+                Console.WriteLine("You need more cups to make a recipe.");
+                Console.ReadLine();
+                GoBackToStore();                
+            }
+
+            return cupsUsed;
+        }
+
+        public void GoBackToStore()
+        {
+            Console.WriteLine("Do you wish to go back to the store?");
+            string yesNo = Console.ReadLine();
+
+            if(yesNo == "yes")
+            {
+                GetStore();
+                GetRecipe();
+            }
+        }
+
+        public void GenerateCustomers(string weather, double temperature)
+        {
+            Customer customer = new Customer(weather, temperature);
+            
+            for(double i = 0; i <= 100; i++)
+            {
+
+            }
+        }
     }
 }

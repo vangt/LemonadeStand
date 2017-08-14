@@ -82,14 +82,17 @@ namespace LemonadeStand.Classes
             return amountToBuy;
         }
 
-        public void GetRecipe()
+        public void GetRecipe(double amount)
         {
-            LemonsToRemove();
-            SugarToRemove();
-            IceToRemove();
+            Console.WriteLine("You have " + inventory.GetLemonList.Count + " lemons.");
+            LemonsToRemove(amount);
+            Console.WriteLine("You have " + inventory.GetSugarList.Count + " lemons.");
+            SugarToRemove(amount);
+            Console.WriteLine("You have " + inventory.GetIceList.Count + " lemons.");
+            IceToRemove(amount);
         }
 
-        public void LemonsToRemove()
+        public void LemonsToRemove(double amount)
         {
             double number = 0;
             number = AskLemonAmount();
@@ -97,7 +100,7 @@ namespace LemonadeStand.Classes
             if (number > inventory.GetLemonList.Count)
             {
                 Console.WriteLine("You don't have that many lemons.");
-                LemonsToRemove();
+                LemonsToRemove(amount);
             }
             else
             {
@@ -108,7 +111,7 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void SugarToRemove()
+        public void SugarToRemove(double amount)
         {
             double number = 0;
             number = AskSugarAmount();
@@ -116,7 +119,7 @@ namespace LemonadeStand.Classes
             if (number > inventory.GetSugarList.Count)
             {
                 Console.WriteLine("You don't have that much sugar.");
-                SugarToRemove();
+                SugarToRemove(amount);
             }
             else
             {
@@ -127,7 +130,7 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void IceToRemove()
+        public void IceToRemove(double amount)
         {
             double number = 0;
             number = AskIceAmount();
@@ -135,7 +138,7 @@ namespace LemonadeStand.Classes
             if (number > inventory.GetIceList.Count)
             {
                 Console.WriteLine("You don't have that much ice.");
-                IceToRemove();
+                IceToRemove(amount);
             }
             else
             {
