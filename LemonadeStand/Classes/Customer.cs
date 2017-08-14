@@ -68,15 +68,31 @@ namespace LemonadeStand.Classes
             }
             set
             {
-                thirst += value;
+                thirst = value;
             }
         }
 
-        public void WeatherThirst(string weatherOfDay, double temperature)
+        public void WeatherThirst(string weatherOfDay)
         {
-            if(temperature > 90)
+        }
+
+        public void TemperatureThirst(double temperature)
+        {
+            if (temperature > 90)
             {
-                
+                AddRemoveThirst += 15;
+            }
+            else if (temperature > 75 && temperature <= 90)
+            {
+                AddRemoveThirst += 10;
+            }
+            else if (temperature > 65 && temperature <= 75)
+            {
+                AddRemoveThirst += 5;
+            }
+            else
+            {
+                AddRemoveThirst -= 5;
             }
         }
     }
