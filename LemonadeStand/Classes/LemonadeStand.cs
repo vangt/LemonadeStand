@@ -31,9 +31,10 @@ namespace LemonadeStand.Classes
 
                 GetStore();
                 GetPrice();
-
-
                 double cost = currentWallet - player.GetWallet;
+
+                string actualWeather = weather.GetActualWeather;
+                double actualTemperature = weather.GetActualTemperature;
 
 
 
@@ -49,8 +50,13 @@ namespace LemonadeStand.Classes
 
         public void GetForcast(string todayWeather, double todayTemperature)
         {
-            Console.WriteLine("The forcast for today is " + todayWeather + " and " + todayTemperature);
+            Console.WriteLine("The forcast for today is " + todayWeather + " and a high of " + todayTemperature);
             Console.ReadLine();
+        }
+
+        public void GetActualWeather(string actualWeather, double actualTemperature)
+        {
+            Console.WriteLine("The actual weather today is " + actualWeather + " and a high of " + actualTemperature);
         }
 
         public void BuyLemons()
