@@ -90,6 +90,44 @@ namespace LemonadeStand.Classes
             }
         }
 
+        public void SugarToRemove()
+        {
+            double number = 0;
+            number = AskSugarAmount();
+
+            if (number > inventory.GetSugarList.Count)
+            {
+                Console.WriteLine("You don't have that much sugar.");
+                SugarToRemove();
+            }
+            else
+            {
+                for (double i = 0; i <= number; i++)
+                {
+                    inventory.RemoveSugar();
+                }
+            }
+        }
+
+        public void IceToRemove()
+        {
+            double number = 0;
+            number = AskIceAmount();
+
+            if (number > inventory.GetIceList.Count)
+            {
+                Console.WriteLine("You don't have that much ice.");
+                IceToRemove();
+            }
+            else
+            {
+                for (double i = 0; i <= number; i++)
+                {
+                    inventory.RemoveIce();
+                }
+            }
+        }
+
         public double AddRemoveMoney
         {
             get
