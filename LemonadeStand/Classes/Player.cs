@@ -86,9 +86,9 @@ namespace LemonadeStand.Classes
         {            
             Console.WriteLine("You have " + inventory.GetLemonList.Count + " lemons.");
             LemonsToRemove(amount);
-            Console.WriteLine("You have " + inventory.GetSugarList.Count + " lemons.");
+            Console.WriteLine("You have " + inventory.GetSugarList.Count + " sugar.");
             SugarToRemove(amount);
-            Console.WriteLine("You have " + inventory.GetIceList.Count + " lemons.");
+            Console.WriteLine("You have " + inventory.GetIceList.Count + " ice.");
             IceToRemove(amount);
         }
 
