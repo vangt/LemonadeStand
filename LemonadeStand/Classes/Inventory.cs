@@ -26,6 +26,30 @@ namespace LemonadeStand.Classes
             }
         }
 
+        public List<Sugar> GetSugarList
+        {
+            get
+            {
+                return sugars;
+            }
+        }
+
+        public List<Ice> GetIceList
+        {
+            get
+            {
+                return ices;
+            }
+        }
+
+        public List<Cup> GetCupList
+        {
+            get
+            {
+                return cups;
+            }
+        }
+
         public void AddLemon()
         {
             Lemon lemon = new Lemon();
