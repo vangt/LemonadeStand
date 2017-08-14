@@ -28,8 +28,8 @@ namespace LemonadeStand.Classes
 
                 double currentWallet = player.GetWallet;
 
-                Console.WriteLine("Welcome to the store.");
-                BuyLemons();
+                GetStore();
+                GetPrice();
                 
 
                 days++;
@@ -48,7 +48,7 @@ namespace LemonadeStand.Classes
 
         public void BuyLemons()
         {
-            Console.WriteLine("How many lemons would you like to buy?");
+            Console.WriteLine("Lemons are .50 cents per lemon. How many lemons would you like to buy?");
             double buyLemon = player.BuyAmount();
             GetLemons(buyLemon, store.GetLemonPrice);
         }
@@ -73,7 +73,7 @@ namespace LemonadeStand.Classes
 
         public void BuySugar()
         {
-            Console.WriteLine("How much sugar would you like to buy?");
+            Console.WriteLine("Sugar is .75 cents a lbs. How much sugar would you like to buy?");
             double buySugar = player.BuyAmount();
             GetSugar(buySugar, store.GetSugarPrice);
         }
@@ -98,7 +98,7 @@ namespace LemonadeStand.Classes
 
         public void BuyIce()
         {
-            Console.WriteLine("How much ice would you like to buy?");
+            Console.WriteLine("Ice is .10 cents a bag. How much ice would you like to buy?");
             double buyIce = player.BuyAmount();
             GetIce(buyIce, store.GetIcePrice);
         }
@@ -123,7 +123,7 @@ namespace LemonadeStand.Classes
 
         public void BuyCup()
         {
-            Console.WriteLine("How many cups would you like to buy?");
+            Console.WriteLine("Cups are .05 cents a cup. How many cups would you like to buy?");
             double buyCup = player.BuyAmount();
             GetCup(buyCup, store.GetCupPrice);
         }
@@ -144,6 +144,36 @@ namespace LemonadeStand.Classes
                     player.GetInventory.AddCups();
                 }
             }
+        }
+
+        public double GetPrice()
+        {
+            double price = 0;
+
+            Console.WriteLine("Please enter a price (Everything is in cents).");
+
+            try
+            {
+                price = double.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("Please choose a reasonable number.");
+                GetPrice();
+            }
+
+            return price;
+        }
+
+        public void GetStore()
+        {
+            Console.WriteLine("Welcome to the store.");
+            Console.WriteLine("You currently have " + player.GetInventory.GetLemonList.Count + "of lemons, " + player.GetInventory.GetSugarList.Count + " lbs of sugar, " + player.GetInventory.GetIceList.Count + " bags of ice, " + player.GetInventory.GetCupList.Count + " of cups. \n");
+
+            BuyLemons();
+            BuySugar();
+            BuyIce();
+            BuyCup();
         }
     }
 }
