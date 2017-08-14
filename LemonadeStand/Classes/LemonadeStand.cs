@@ -22,6 +22,7 @@ namespace LemonadeStand.Classes
 
             while (days < 7)
             {
+                Console.WriteLine("Day " + days);
                 string todayWeather = weather.GetWeatherForecast;
                 double todayTemperature = weather.GetTemperature;
                 GetForcast(todayWeather, todayTemperature);
@@ -30,7 +31,11 @@ namespace LemonadeStand.Classes
 
                 GetStore();
                 GetPrice();
-                
+
+
+                double cost = currentWallet - player.GetWallet;
+
+
 
                 days++;
             }
@@ -38,12 +43,14 @@ namespace LemonadeStand.Classes
 
         public void WelcomeMessage()
         {
-            Console.WriteLine("You have decided to earn some extra change by selling lemonade. \n You start out with 10$ to buy lemons, sugar, ice, and cups. \n You can mix your own recipe and add a price. \n You will get the forcast of that day's weather and it could change. \n Remember that the weather affect a customer's thirst level.");
+            Console.WriteLine("You have decided to earn some extra change by selling lemonade. \n You have only 7 days to earn extra cash before you have to go back to your real job. \n You start out with 10$ to buy lemons, sugar, ice, and cups. \n You can mix your own recipe and add a price. \n You will get the forcast of that day's weather and it could change. \n Remember that the weather affect a customer's thirst level.");
+            Console.ReadLine();
         }
 
         public void GetForcast(string todayWeather, double todayTemperature)
         {
             Console.WriteLine("The forcast for today is " + todayWeather + " and " + todayTemperature);
+            Console.ReadLine();
         }
 
         public void BuyLemons()
@@ -59,6 +66,8 @@ namespace LemonadeStand.Classes
 
             if(itemsToBuy == "Not enough money")
             {
+                Console.WriteLine("Not enougn money.");
+                Console.ReadLine();
                 BuyLemons();
             }
             else
@@ -84,6 +93,8 @@ namespace LemonadeStand.Classes
 
             if (itemsToBuy == "Not enough money")
             {
+                Console.WriteLine("Not enough money.");
+                Console.ReadLine();
                 BuySugar();
             }
             else
@@ -109,6 +120,8 @@ namespace LemonadeStand.Classes
 
             if (itemsToBuy == "Not enough money")
             {
+                Console.WriteLine("Not enough money.");
+                Console.ReadLine();
                 BuyIce();
             }
             else
@@ -134,6 +147,8 @@ namespace LemonadeStand.Classes
 
             if (itemsToBuy == "Not enough money")
             {
+                Console.WriteLine("Not enough money.");
+                Console.ReadLine();
                 BuyCup();
             }
             else
@@ -150,19 +165,42 @@ namespace LemonadeStand.Classes
         {
             double price = 0;
 
-            Console.WriteLine("Please enter a price (Everything is in cents).");
-
+            Console.WriteLine("Please enter a price. Max price is 99 cents.  DO NOT ADD THE DECIMAL. Anything entered higher than 99 will be coverted (i.e. 100 = .10, 89989 = .90, 1 = .10, etc.");
             try
             {
                 price = double.Parse(Console.ReadLine());
             }
             catch(FormatException)
             {
-                Console.WriteLine("Please choose a reasonable number.");
+                Console.WriteLine("You've made an invalid entry.");
                 GetPrice();
             }
 
+            if(price < 1)
+            {
+                Console.WriteLine("You've entered a number less than 1.");
+                GetPrice();
+            }
+            else
+            {
+                price = ConvertPrice(price);
+            }
+
+            Console.WriteLine("You chose " + price + " per cup of lemonade.");
+            Console.ReadLine();
+
             return price;
+        }
+
+        public double ConvertPrice(double price)
+        {
+            string newPrice = price.ToString();
+            newPrice = ("." + newPrice);
+            decimal priceToReturn = decimal.Parse(newPrice);
+            priceToReturn = decimal.Round(priceToReturn, 2);
+            newPrice = priceToReturn.ToString();
+            double number = double.Parse(newPrice);
+            return number;
         }
 
         public void GetStore()
@@ -175,5 +213,7 @@ namespace LemonadeStand.Classes
             BuyIce();
             BuyCup();
         }
+
+
     }
 }
