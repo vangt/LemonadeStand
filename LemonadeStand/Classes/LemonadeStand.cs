@@ -93,5 +93,53 @@ namespace LemonadeStand.Classes
                 }
             }
         }
+
+        public void BuyIce()
+        {
+            Console.WriteLine("How much ice would you like to buy?");
+            double buyIce = player.BuyAmount();
+            GetIce(buyIce, store.GetIcePrice);
+        }
+
+        public void GetIce(double item, double price)
+        {
+            string itemsToBuy = player.Buy(item, price);
+
+            if (itemsToBuy == "Not enough money")
+            {
+                BuyIce();
+            }
+            else
+            {
+                for (double i = 0; i <= item; i++)
+                {
+                    player.GetInventory.AddIce();
+                }
+            }
+        }
+
+        public void BuyCup()
+        {
+            Console.WriteLine("How much cup would you like to buy?");
+            double buyCup = player.BuyAmount();
+            GetCup(buyCup, store.GetCupPrice);
+        }
+
+        public void GetCup(double item, double price)
+        {
+            string itemsToBuy = player.Buy(item, price);
+
+            if (itemsToBuy == "Not enough money")
+            {
+                BuyCup();
+            }
+            else
+            {
+                for (double i = 0; i <= item; i++)
+                {
+                    player.GetInventory.AddCups();
+                }
+            }
+        }
     }
 }
