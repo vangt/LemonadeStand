@@ -14,7 +14,7 @@ namespace LemonadeStand.Classes
 
             while (days < 1)
             {
-
+                // TODO:
 
                 days++;
             }

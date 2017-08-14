@@ -60,7 +60,7 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public double AddThirst
+        public double AddRemoveThirst
         {
             get
             {
@@ -72,23 +72,11 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public double RemoveThirst
+        public void WeatherThirst(string weatherOfDay, double temperature)
         {
-            get
+            if(temperature > 90)
             {
-                return thirst;
-            }
-            set
-            {
-                thirst -= value;
-            }
-        }
-
-        public void WeatherThirst(string weatherOfDay, )
-        {
-            if(weatherOfDay == "sunny")
-            {
-                AddThirst = 10;
+                
             }
         }
     }

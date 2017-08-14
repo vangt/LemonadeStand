@@ -149,16 +149,56 @@ namespace LemonadeStand.Classes
             {
                 amount = sales - cost;
                 Console.WriteLine("Today's profit is: " + amount);
+                GetProfit += amount;
             }
             else
             {
                 amount = cost - sales;
                 Console.WriteLine("Today's loss is: " + amount);
+                GetLoss += amount;
             }
         }
 
-        public void GetNetProfitLoss(double net)
+        public double GetProfit
         {
+            get
+            {
+                return profit;
+            }
+            set
+            {
+                profit = value;
+            }
+        }
+
+        public double GetLoss
+        {
+            get
+            {
+                return loss;
+            }
+            set
+            {
+                loss = value;
+            }
+        }
+
+        public double GetNet
+        {
+            get
+            {
+                return netProfitLoss;
+            }
+            set
+            {
+                netProfitLoss = profit - loss;
+            }
+        }
+
+        public void GetNetProfitLoss()
+        {
+            double net = GetNet;
+
             if (net > 0)
             {
                 Console.WriteLine("You have a net income of: " + net);
