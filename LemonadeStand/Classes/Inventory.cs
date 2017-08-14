@@ -18,6 +18,14 @@ namespace LemonadeStand.Classes
 
         }
 
+        public List<Lemon> GetLemonList
+        {
+            get
+            {
+                return lemons;
+            }
+        }
+
         public void AddLemon()
         {
             Lemon lemon = new Lemon();

@@ -65,7 +65,7 @@ namespace LemonadeStand.Classes
             return walletamount;
         }
 
-        public void GetRecipe(double lemon, double sugar, double ice)
+        public void GetRecipe()
         {
             
         }
