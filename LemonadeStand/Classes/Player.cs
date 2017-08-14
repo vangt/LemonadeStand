@@ -68,7 +68,8 @@ namespace LemonadeStand.Classes
         public void GetRecipe()
         {
             LemonsToRemove();
-            
+            SugarToRemove();
+            IceToRemove();
         }
 
         public void LemonsToRemove()
