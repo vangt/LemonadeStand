@@ -27,12 +27,18 @@ namespace LemonadeStand.Classes
             set
             {
                 Random random = new Random();
-                Stopwatch stopWatch = new Stopwatch();
-                stopWatch.Start();
-                Thread.Sleep(1000);
-                stopWatch.Stop();
+                GetTimer();
                 thirst = random.Next(40, 61);
             }
+        }
+
+        public void GetTimer()
+        {
+            
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+            Thread.Sleep(1000);
+            stopWatch.Stop();
         }
 
         public bool IsBuying
@@ -75,6 +81,14 @@ namespace LemonadeStand.Classes
             set
             {
                 thirst -= value;
+            }
+        }
+
+        public void WeatherThirst(string weatherOfDay, )
+        {
+            if(weatherOfDay == "sunny")
+            {
+                AddThirst = 10;
             }
         }
     }
