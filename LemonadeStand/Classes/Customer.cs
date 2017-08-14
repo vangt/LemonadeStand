@@ -11,7 +11,6 @@ namespace LemonadeStand.Classes
     public class Customer
     {
         private double thirst;
-        private bool isBuying;
         
         public Customer(string weather, double temperature, double price)
         {
@@ -30,7 +29,7 @@ namespace LemonadeStand.Classes
             stopWatch.Stop();
             Random random = new Random();
             GetTimer();
-            GetThirst = random.Next(40, 61);
+            AddRemoveThirst = random.Next(40, 61);
         }
 
         public double AddRemoveThirst

@@ -72,14 +72,15 @@ namespace LemonadeStand.Classes
             Console.ReadLine();
         }
 
-        public void BuyLemons()
+        public void BuyLemons(double wallet)
         {
+            Console.WriteLine("You currently have " + wallet + " in your wallet.");
             Console.WriteLine("Lemons are .50 cents per lemon. How many lemons would you like to buy?");
             double buyLemon = player.BuyAmount();
-            GetLemons(buyLemon, store.GetLemonPrice);
+            GetLemons(buyLemon, store.GetLemonPrice, wallet);
         }
 
-        public void GetLemons(double item, double price)
+        public void GetLemons(double item, double price, double wallet)
         {
             string itemsToBuy = player.Buy(item, price);
 
@@ -87,7 +88,7 @@ namespace LemonadeStand.Classes
             {
                 Console.WriteLine("Not enougn money.");
                 Console.ReadLine();
-                BuyLemons();
+                BuyLemons(wallet);
             }
             else
             {
@@ -99,14 +100,15 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void BuySugar()
+        public void BuySugar(double wallet)
         {
+            Console.WriteLine("You currently have " + wallet + " in your wallet.");
             Console.WriteLine("Sugar is .75 cents a lbs. How much sugar would you like to buy?");
             double buySugar = player.BuyAmount();
-            GetSugar(buySugar, store.GetSugarPrice);
+            GetSugar(buySugar, store.GetSugarPrice, wallet);
         }
 
-        public void GetSugar(double item, double price)
+        public void GetSugar(double item, double price, double wallet)
         {
             string itemsToBuy = player.Buy(item, price);
 
@@ -114,7 +116,7 @@ namespace LemonadeStand.Classes
             {
                 Console.WriteLine("Not enough money.");
                 Console.ReadLine();
-                BuySugar();
+                BuySugar(wallet);
             }
             else
             {
@@ -126,14 +128,15 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void BuyIce()
+        public void BuyIce(double wallet)
         {
+            Console.WriteLine("You currently have " + wallet + " in your wallet.");
             Console.WriteLine("Ice is .10 cents a bag. How much ice would you like to buy?");
             double buyIce = player.BuyAmount();
-            GetIce(buyIce, store.GetIcePrice);
+            GetIce(buyIce, store.GetIcePrice, wallet);
         }
 
-        public void GetIce(double item, double price)
+        public void GetIce(double item, double price, double wallet)
         {
             string itemsToBuy = player.Buy(item, price);
 
@@ -141,7 +144,7 @@ namespace LemonadeStand.Classes
             {
                 Console.WriteLine("Not enough money.");
                 Console.ReadLine();
-                BuyIce();
+                BuyIce(wallet);
             }
             else
             {
@@ -153,14 +156,15 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void BuyCup()
+        public void BuyCup(double wallet)
         {
+            Console.WriteLine("You currently have " + wallet + " in your wallet.");
             Console.WriteLine("Cups are .05 cents a cup. How many cups would you like to buy?");
             double buyCup = player.BuyAmount();
-            GetCup(buyCup, store.GetCupPrice);
+            GetCup(buyCup, store.GetCupPrice, wallet);
         }
 
-        public void GetCup(double item, double price)
+        public void GetCup(double item, double price, double wallet)
         {
             string itemsToBuy = player.Buy(item, price);
 
@@ -168,7 +172,7 @@ namespace LemonadeStand.Classes
             {
                 Console.WriteLine("Not enough money.");
                 Console.ReadLine();
-                BuyCup();
+                BuyCup(double wallet);
             }
             else
             {
@@ -225,12 +229,13 @@ namespace LemonadeStand.Classes
         public void GetStore()
         {
             Console.WriteLine("Welcome to the store.");
+
             Console.WriteLine("You currently have " + player.GetInventory.GetLemonList.Count + "of lemons, " + player.GetInventory.GetSugarList.Count + " lbs of sugar, " + player.GetInventory.GetIceList.Count + " bags of ice, " + player.GetInventory.GetCupList.Count + " of cups. \n");
 
-            BuyLemons();
-            BuySugar();
-            BuyIce();
-            BuyCup();
+            BuyLemons(player.GetWallet);
+            BuySugar(player.GetWallet);
+            BuyIce(player.GetWallet);
+            BuyCup(player.GetWallet);
         }
 
         public double GetRecipe()
@@ -305,6 +310,9 @@ namespace LemonadeStand.Classes
                     sales += price;
                 }
             }
+
+            Console.WriteLine("You had " + numberOfCustomers + " customers.");
+            Console.ReadLine();
 
             return sales;
         }

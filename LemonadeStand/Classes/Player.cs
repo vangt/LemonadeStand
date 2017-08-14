@@ -83,7 +83,7 @@ namespace LemonadeStand.Classes
         }
 
         public void GetRecipe(double amount)
-        {
+        {            
             Console.WriteLine("You have " + inventory.GetLemonList.Count + " lemons.");
             LemonsToRemove(amount);
             Console.WriteLine("You have " + inventory.GetSugarList.Count + " lemons.");
