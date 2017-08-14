@@ -67,7 +67,27 @@ namespace LemonadeStand.Classes
 
         public void GetRecipe()
         {
+            LemonsToRemove();
             
+        }
+
+        public void LemonsToRemove()
+        {
+            double number = 0;
+            number = AskLemonAmount();
+
+            if (number > inventory.GetLemonList.Count)
+            {
+                Console.WriteLine("You don't have that many lemons.");
+                LemonsToRemove();
+            }
+            else
+            {
+                for (double i = 0; i <= number; i++)
+                {
+                    inventory.RemoveLemon();
+                }
+            }
         }
 
         public double AddRemoveMoney
