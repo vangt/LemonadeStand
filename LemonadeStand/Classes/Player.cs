@@ -130,5 +130,22 @@ namespace LemonadeStand.Classes
 
             return sugar;
         }
+
+        public double AskIceAmount()
+        {
+            double ice = 0;
+            Console.WriteLine("How many ice do you wish to put in your recipe?");
+
+            try
+            {
+                ice = double.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("That was not a valid number.");
+            }
+
+            return ice;
+        }
     }
 }
