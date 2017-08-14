@@ -13,9 +13,11 @@ namespace LemonadeStand.Classes
         private double thirst;
         private bool isBuying;
         
-        public Customer()
+        public Customer(string weather, double temperature)
         {
             thirst = GetThirst;
+            WeatherThirst(weather);
+            TemperatureThirst(temperature);
         }
 
         public double GetThirst

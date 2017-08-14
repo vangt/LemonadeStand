@@ -65,6 +65,23 @@ namespace LemonadeStand.Classes
             return walletamount;
         }
 
+        public double BuyAmount()
+        {
+            double amountToBuy = 0;
+
+            try
+            {
+                amountToBuy = double.Parse(Console.ReadLine());
+            }
+            catch(FormatException)
+            {
+                Console.WriteLine("That is an invalid number. \n Please enter a number.");
+                BuyAmount();
+            }
+
+            return amountToBuy;
+        }
+
         public void GetRecipe()
         {
             LemonsToRemove();
@@ -138,6 +155,14 @@ namespace LemonadeStand.Classes
             set
             {
                 wallet = value;
+            }
+        }
+
+        public Inventory GetInventory
+        {
+            get
+            {
+                return inventory;
             }
         }
 

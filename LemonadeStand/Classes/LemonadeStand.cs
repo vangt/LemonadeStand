@@ -11,7 +11,6 @@ namespace LemonadeStand.Classes
         Player player = new Player();
         Weather weather = new Weather();
         Store store = new Store();
-        Customer custome = new Customer();
 
         public void Start()
         {
@@ -27,7 +26,11 @@ namespace LemonadeStand.Classes
                 double todayTemperature = weather.GetTemperature;
                 GetForcast(todayWeather, todayTemperature);
 
+                double currentWallet = player.GetWallet;
 
+                Console.WriteLine("Welcome to the store.");
+                BuyLemons();
+                
 
                 days++;
             }
@@ -41,6 +44,54 @@ namespace LemonadeStand.Classes
         public void GetForcast(string todayWeather, double todayTemperature)
         {
             Console.WriteLine("The forcast for today is " + todayWeather + " and " + todayTemperature);
+        }
+
+        public void BuyLemons()
+        {
+            Console.WriteLine("How many lemons would you like to buy?");
+            double buyLemon = player.BuyAmount();
+            GetLemons(buyLemon, store.GetLemonPrice);
+        }
+
+        public void GetLemons(double item, double price)
+        {
+            string itemsToBuy = player.Buy(item, price);
+
+            if(itemsToBuy == "Not enough money")
+            {
+                BuyLemons();
+            }
+            else
+            {
+                for(double i = 0; i <= item; i++)
+                {
+                    player.GetInventory.AddLemon();
+                }
+            }
+        }
+
+        public void BuySugar()
+        {
+            Console.WriteLine("How much sugar would you like to buy?");
+            double buySugar = player.BuyAmount();
+            GetSugar(buySugar, store.GetSugarPrice);
+        }
+
+        public void GetSugar(double item, double price)
+        {
+            string itemsToBuy = player.Buy(item, price);
+
+            if (itemsToBuy == "Not enough money")
+            {
+                BuySugar();
+            }
+            else
+            {
+                for (double i = 0; i <= item; i++)
+                {
+                    player.GetInventory.AddSugar();
+                }
+            }
         }
     }
 }
