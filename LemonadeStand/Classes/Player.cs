@@ -141,14 +141,20 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public void GetProfit()
+        public void GetProfitLoss(double cost, double sales)
         {
+            double amount = 0;
 
-        }
+            amount = cost - sales;
 
-        public void GetLoss()
-        {
-
+            if(amount > cost)
+            {
+                Console.WriteLine("Today's profit is: " + amount);
+            }
+            else
+            {
+                Console.WriteLine("Today's loss is: " + amount);
+            }
         }
 
         public void GetNetProfitLoss()
