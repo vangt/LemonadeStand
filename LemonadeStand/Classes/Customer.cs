@@ -74,6 +74,26 @@ namespace LemonadeStand.Classes
 
         public void WeatherThirst(string weatherOfDay)
         {
+            switch(weatherOfDay)
+            {
+                case "sunny":
+                    AddRemoveThirst += 15;
+                    break;
+                case "partyly cloudy":
+                    AddRemoveThirst += 10;
+                    break;
+                case "cloudy":
+                    AddRemoveThirst += 5;
+                    break;
+                case "scattered showers":
+                    AddRemoveThirst -= 5;
+                    break;
+                case "heavy rain":
+                    AddRemoveThirst -= 10;
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void TemperatureThirst(double temperature)
