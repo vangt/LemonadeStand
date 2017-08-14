@@ -30,6 +30,36 @@ namespace LemonadeStand.Classes
             }
         }
 
+        public double GetActualTemperature
+        {
+            get
+            {
+                return temperature;
+            }
+            set
+            {
+                temperature = GetNewTemperature(temperature);
+            }
+        }
+
+        public double GetNewTemperature(double temperature)
+        {
+            Random random = new Random();
+            int plusminus = random.Next(0, 1);
+            double number = random.Next(0, 6);
+
+            if(plusminus == 0)
+            {
+                temperature += number;
+            }
+            else
+            {
+                temperature -= number;
+            }
+
+            return temperature;
+        }
+
         public string GetWeatherForecast
         {
             get
