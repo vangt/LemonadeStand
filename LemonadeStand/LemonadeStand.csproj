@@ -54,6 +54,8 @@
     <Compile Include="Classes\Store.cs" />
     <Compile Include="Classes\Sugar.cs" />
     <Compile Include="Classes\Weather.cs" />
+    <Compile Include="DatabaseLoader.cs" />
+    <Compile Include="DatabaseSaver.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
