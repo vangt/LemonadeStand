@@ -126,29 +126,32 @@ namespace LemonadeStand.Classes
             Random randon = new Random();
             int number = randon.Next(0, 1);
 
-            for(int i = 0; i < weather.Length; i++)
+            for (int i = 0; i < weather.Length; i++)
             {
-                if (weatherOfDay == weather[i] && weatherOfDay != weather[weather.Length - 1] && weatherOfDay != weather[0])
-                {
-                    if(number == 0)
-                    {
-                        newWeather = weather[i + 1];
-                    }
-                    else
-                    {
-                        newWeather = weather[i - 1];
-                    }
-                }
-                else if (weatherOfDay == weather[0])
+                if (weatherOfDay == weather[0])
                 {
                     newWeather = weather[i + 1];
+                    break;
                 }
                 else if (weatherOfDay == weather[weather.Length - 1])
                 {
                     newWeather = weather[weather.Length - 2];
+                    break;
+                }
+                else
+                {
+                    if (number == 0)
+                    {
+                        newWeather = weather[i + 1];
+                        break;
+                    }
+                    else
+                    {
+                        newWeather = weather[i - 1];
+                        break;
+                    }
                 }
             }
-
             return newWeather;
         }
     }

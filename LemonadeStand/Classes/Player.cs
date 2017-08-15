@@ -22,7 +22,8 @@ namespace LemonadeStand.Classes
 
         public void GetPlayer()
         {
-            name = GetName;
+            Console.WriteLine("What is your name?");
+            GetName = Console.ReadLine();
             AddRemoveMoney += 25;
         }
 
@@ -34,8 +35,8 @@ namespace LemonadeStand.Classes
             }  
             set
             {
-                Console.WriteLine("What is your name?");
-                name = Console.ReadLine();
+
+                name = value;
             }
         }
 
@@ -77,6 +78,12 @@ namespace LemonadeStand.Classes
             {
                 Console.WriteLine("That is an invalid number. \n Please enter a number.");
                 BuyAmount();
+            }
+
+            if (amountToBuy < 1)
+            {
+                Console.WriteLine("You entered a number lower than 1.  Your amount has reset to 0.");
+                amountToBuy = 0;
             }
 
             return amountToBuy;
