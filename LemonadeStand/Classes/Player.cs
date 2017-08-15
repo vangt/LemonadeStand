@@ -219,27 +219,27 @@ namespace LemonadeStand.Classes
             }
             set
             {
-                netProfitLoss = profit - loss;
+                netProfitLoss = value;
             }
         }
 
         public void GetNetProfitLoss()
         {
-            double net = GetNet;
+            GetNet = GetProfit - GetLoss;
 
-            if (net > 0)
+            if (profit > loss)
             {
-                Console.WriteLine("You have a net income of: " + net);
+                Console.WriteLine("You have a net income of: " + GetNet);
                 Console.ReadLine();
             }
-            else if (net < 0)
+            else if (loss > profit)
             {
-                Console.WriteLine("You have a net loss of: " + net);
+                Console.WriteLine("You have a net loss of: " + GetNet);
                 Console.ReadLine();
             }
             else
             {
-                Console.WriteLine("You broke even at the end of 7 days.");
+                Console.WriteLine("You broke even.");
                 Console.ReadLine();
             }
         }

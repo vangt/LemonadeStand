@@ -25,7 +25,7 @@ namespace LemonadeStand.Classes
             
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
-            Thread.Sleep(250);
+            Thread.Sleep(50);
             stopWatch.Stop();
             Random random = new Random();
             AddRemoveThirst = random.Next(40, 61);

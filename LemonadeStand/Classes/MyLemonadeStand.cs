@@ -44,15 +44,16 @@ namespace LemonadeStand.Classes
 
                 GenerateCustomers(weather.GetActualWeather, weather.GetActualTemperature, price);
 
-                sales = GetNumberOfSales(customers, price);
+                sales = GetNumberOfSales(customers, price, cupsUsed);
 
                 player.GetProfitLoss(cost, sales);
 
                 days++;
+                player.GetNetProfitLoss();
                 customers.Clear();
             }
 
-            player.GetNetProfitLoss();
+            
         }
 
         public void WelcomeMessage()
@@ -290,6 +291,8 @@ namespace LemonadeStand.Classes
 
         public void GenerateCustomers(string weather, double temperature, double price)
         {
+            Console.WriteLine("Please wait while we wait on customers to come by.");
+
             for(double i = 0; i <= 100; i++)
             {
                 Customer customer = new Customer(weather, temperature, price);
@@ -297,18 +300,23 @@ namespace LemonadeStand.Classes
             }
         }
 
-        public double GetNumberOfSales(List<Customer> customers, double price)
+        public double GetNumberOfSales(List<Customer> customers, double price, double cups)
         {
             double numberOfCustomers = 0;
             double sales = 0;
 
             foreach(Customer customer in customers)
             {
-                if(customer.AddRemoveThirst > 75)
+                
+                if (customer.AddRemoveThirst > 75)
                 {
-                    player.AddRemoveMoney += price;
-                    numberOfCustomers++;
-                    sales += price;
+                    if (cups > 0)
+                    {
+                        player.AddRemoveMoney += price;
+                        numberOfCustomers++;
+                        sales += price;
+                        cups--;
+                    }
                 }
             }
 
