@@ -304,12 +304,14 @@ namespace LemonadeStand.Classes
         {
             double numberOfCustomers = 0;
             double sales = 0;
+            double salesMissed = 0;
 
             foreach(Customer customer in customers)
             {
                 
                 if (customer.AddRemoveThirst > 75)
                 {
+                    salesMissed++;
                     if (cups > 0)
                     {
                         player.AddRemoveMoney += price;
@@ -320,7 +322,7 @@ namespace LemonadeStand.Classes
                 }
             }
 
-            Console.WriteLine("You had " + numberOfCustomers + " customers.");
+            Console.WriteLine("You had " + numberOfCustomers + " customers buy lemonade out of " + salesMissed);
             Console.ReadLine();
 
             return sales;
