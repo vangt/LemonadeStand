@@ -12,16 +12,22 @@ namespace LemonadeStand.Classes
         Weather weather = new Weather();
         Store store = new Store();
         List<Customer> customers = new List<Customer>();
+        DatabaseSaver databaseSaver = new DatabaseSaver();
+        DatabaseLoader databaseLoader = new DatabaseLoader();
 
         public void Start()
         {
+            Console.WriteLine("Here are previous gamers names and net totals.");
+            databaseLoader.LoadGame();
+            Console.ReadLine();
+            Console.Clear();
             
             double days = 1;
 
             player.GetPlayer();
             WelcomeMessage();
 
-            while (days < 7)
+            while (days < 2)
             {
                 Console.WriteLine("Day " + days);
                 weather.GetWeatherForecast = weather.GetRandomWeather();
@@ -52,7 +58,7 @@ namespace LemonadeStand.Classes
                 player.GetNetProfitLoss();
                 customers.Clear();
             }
-
+            databaseSaver.Save(player.GetName, player.GetNet);
             
         }
 

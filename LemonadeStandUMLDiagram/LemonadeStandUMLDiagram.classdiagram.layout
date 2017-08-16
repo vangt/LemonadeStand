@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LemonadeStandUMLDiagram">
+  <logicalClassDesignerModelMoniker Id="aa136a62-7360-4f3e-a7e2-51e75634d7d3" />
+  <nestedChildShapes>
+    <classShape Id="c59a19bc-4ad1-447b-8d22-9805d653987a" absoluteBounds="3.5, 1.375, 1.5, 0.90234373509883881" hideQualifiedName="false" increaseHeight="0" customColor="181, 193, 223">
+      <classMoniker Id="65d28c76-ce11-4af0-8663-410dfd528379" LastKnownName="Program" />
+      <nestedChildShapes>
+        <AttributeElementListCompartment Id="76cd3195-6de4-46be-9554-a1c38fac1a3c" absoluteBounds="3.515, 1.7650000000000001, 1.4700000000000002, 0.2011718675494194" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <OperationElementListCompartment Id="09303c5b-53c6-44b3-b34f-2735bbdc63f0" absoluteBounds="3.515, 1.9761718675494193, 1.4700000000000002, 0.2011718675494194" name="OperationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</logicalClassDesignerDiagram>

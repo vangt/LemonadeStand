@@ -20,7 +20,7 @@ namespace LemonadeStand
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand($"INSERT INTO Scores VALUES ('{playerName}', '{playerNet}')", connection);
+                SqlCommand command = new SqlCommand($"INSERT INTO TSHWMSIM.Scores VALUES ('{name}', '{net}')", connection);
                 command.ExecuteNonQuery();
                 connection.Close();
                 Console.WriteLine("Game Saved");

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<logicalClassDesignerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" dslVersion="1.0.0.0" Id="aa136a62-7360-4f3e-a7e2-51e75634d7d3" name="LemonadeStandUMLDiagram" linkedPackageId="8599cd8f-276d-464d-9c1e-09f0a46ef394" xmlns="http://schemas.microsoft.com/dsltools/LogicalClassDesigner">
+  <profileInstances>
+    <packageHasProfileInstances Id="3f825ae2-567e-4c9e-a69d-e9d0b7b2ab94">
+      <profileInstance Id="fa33fe68-9237-499c-8a64-49d9272f74d6" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="940f4b43-b12a-4831-bdc6-7686f0feadab">
+      <profileInstance Id="d23373cb-457c-4863-ba54-0d9a4abe5e06" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <logicalClassDesignerModelHasTypes>
+      <class Id="65d28c76-ce11-4af0-8663-410dfd528379" name="Program" isAbstract="false" isLeaf="false" isActiveClass="false">
+        <elementDefinition Id="6db4fbce-b99c-4e75-8722-9044bb5730ac" />
+      </class>
+    </logicalClassDesignerModelHasTypes>
+  </packagedElements>
+  <package Id="8599cd8f-276d-464d-9c1e-09f0a46ef394" name="LemonadeStandUMLDiagram">
+    <elementDefinition Id="8fcca76c-07cd-4cbd-8c04-cee6b6ad2a04" />
+  </package>
+</logicalClassDesignerModel>

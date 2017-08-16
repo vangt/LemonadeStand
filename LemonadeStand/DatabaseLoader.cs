@@ -20,7 +20,7 @@ namespace LemonadeStand
             try
             {
                 connection.Open();
-                SqlCommand command = new SqlCommand("SELECT Player_Name, Player_Net FROM Scores", connection);
+                SqlCommand command = new SqlCommand("SELECT Name, Net FROM TSHWMSIM.Scores", connection);
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
